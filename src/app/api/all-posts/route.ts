@@ -29,26 +29,3 @@ export async function GET(req: NextRequest) {
     );
   }
 }
-
-export async function POST(req: NextRequest) {
-  await connectDB();
-
-  try {
-    const body = await req.json();
-    console.log(body);
-
-    const newPost = await BlogPost.create({
-      title: body.title,
-      author: body.author,
-      content: body.content,
-    });
-    console.log(newPost);
-
-    return NextResponse.json(newPost, { status: 201 });
-  } catch (error) {
-    return NextResponse.json(
-      { error: `Failed to create post ${error}` },
-      { status: 400 }
-    );
-  }
-}

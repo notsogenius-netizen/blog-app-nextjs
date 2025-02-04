@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function BlogPostCard({ post }) {
   return (
-    <Link href={`/posts/${post.title}`} className="block">
+    <Link href={`/posts/${post._id}`} className="block">
       <div className="border p-4 rounded hover:shadow-lg transition-shadow">
         <h2 className="text-xl font-bold mb-2">{post.title}</h2>
         <p className="text-gray-600 mb-2">By {post.author}</p>
